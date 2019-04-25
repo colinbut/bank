@@ -1,4 +1,5 @@
 from current_account import CurrentAccount
+from party.account_holder_type import AccountHolderType
 from party.basic_account_holder import BasicAccountHolder
 from party.party import Party
 from savings_account import SavingsAccount
@@ -13,13 +14,13 @@ savings_account = SavingsAccount(1.00)
 cash_isa_account = CashIsaAccount()
 
 # Create the Banker(s)
-colin = BasicAccountHolder(Party("Colin", "But", "Address"), current_account)
+colin = BasicAccountHolder(Party("Colin", "But", "Address"), current_account, AccountHolderType.ADVANCE_CUSTOMER)
 colin.add_account(savings_account)
 colin.add_account(cash_isa_account)
 
 amy_s_current_account = CurrentAccount("Current Bank Account")
 amy_s_savings_account = SavingsAccount(10.00)
-amy = BasicAccountHolder(Party("Amy", "Man", "Address"), amy_s_current_account)
+amy = BasicAccountHolder(Party("Amy", "Man", "Address"), amy_s_current_account, AccountHolderType.BASIC_CUSTOMER)
 amy.add_account(amy_s_savings_account)
 amy_s_savings_account.deposit(2500.00)
 
