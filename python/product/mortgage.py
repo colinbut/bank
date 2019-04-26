@@ -1,0 +1,2 @@
+class Mortgage:
+    pass
