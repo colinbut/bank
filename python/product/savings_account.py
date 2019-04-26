@@ -3,6 +3,10 @@ from product.account import Account
 
 class SavingsAccount(Account):
 
+    # 0.35%
+    interest_rate = 0.35
+    tax_rate = 0.17  # 0.17%
+
     def __init__(self, initial_deposit, account_holder):
         Account.__init__(self, account_holder)
 
@@ -11,18 +15,11 @@ class SavingsAccount(Account):
         # Saving Accounts need an initial pay in amount
         self.balance += initial_deposit
 
-        # 0.35%
-        self.interest_rate = 0.35
-        self.tax_rate = 0.17  # 0.17%
-
         print("Opened bank account: " + self.__class__.__name__)
 
-    # def get_interest_rate(self):
-    #     return self.interest_rate
-
     def calculate_interest_rate(self):
-        interest_earned = self.balance * self.interest_rate
-        return interest_earned - (self.tax_rate / 100)
+        interest_earned = self.balance * SavingsAccount.interest_rate
+        return interest_earned - (SavingsAccount.tax_rate / 100)
 
     def apply_interest_rate(self):
         self.balance += self.calculate_interest_rate()
@@ -41,5 +38,5 @@ class SavingsAccount(Account):
 
     def __str__(self):
         return "[" + self.__class__.__name__ + ":balance=" \
-               + str(self.balance) + ",interest-rate:" + str(self.interest_rate) +\
-                ",tax-rate:" + str(self.tax_rate) + ", account_holder:" + str(self.account_holder) + "]"
+               + str(self.balance) + ",interest-rate:" + str(SavingsAccount.interest_rate) +\
+                ",tax-rate:" + str(SavingsAccount.tax_rate) + ", account_holder:" + str(self.account_holder) + "]"
