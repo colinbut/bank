@@ -1,9 +1,9 @@
-from current_account import CurrentAccount
+from product.current_account import CurrentAccount
 from party.account_holder_type import AccountHolderType
 from party.basic_account_holder import BasicAccountHolder
 from party.party import Party
-from savings_account import SavingsAccount
-from cash_isa_account import CashIsaAccount
+from product.savings_account import SavingsAccount
+from product.cash_isa_account import CashIsaAccount
 
 print("=======Bank=========")
 print("Welcome to Bank of Colin")
@@ -45,11 +45,6 @@ def print_account_details():
 
 
 print_colin_bank_accounts()
-
-
-"""
-    Below are suppose to be...
-"""
 
 for account_holder in account_holders:
     print(account_holder)
