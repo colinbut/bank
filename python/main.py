@@ -8,20 +8,17 @@ from cash_isa_account import CashIsaAccount
 print("=======Bank=========")
 print("Welcome to Bank of Colin")
 
-# Create Accounts for Colin
-current_account = CurrentAccount("Current Bank Account")
-savings_account = SavingsAccount(1.00)
-cash_isa_account = CashIsaAccount()
 
 # Create the Banker(s)
-colin = BasicAccountHolder(Party("Colin", "But", "Address"), current_account, AccountHolderType.ADVANCE_CUSTOMER)
-colin.add_account(savings_account)
-colin.add_account(cash_isa_account)
+colin = BasicAccountHolder(Party("Colin", "But", "Address"), AccountHolderType.ADVANCE_CUSTOMER)
+# Create Accounts for Colin
+current_account = CurrentAccount("Current Bank Account", colin)
+savings_account = SavingsAccount(1.00, colin)
+cash_isa_account = CashIsaAccount(colin)
 
-amy_s_current_account = CurrentAccount("Current Bank Account")
-amy_s_savings_account = SavingsAccount(10.00)
-amy = BasicAccountHolder(Party("Amy", "Man", "Address"), amy_s_current_account, AccountHolderType.BASIC_CUSTOMER)
-amy.add_account(amy_s_savings_account)
+amy = BasicAccountHolder(Party("Amy", "Man", "Address"), AccountHolderType.BASIC_CUSTOMER)
+amy_s_current_account = CurrentAccount("Current Bank Account", amy)
+amy_s_savings_account = SavingsAccount(10.00, amy)
 amy_s_savings_account.deposit(2500.00)
 
 # Do some bank transactions..

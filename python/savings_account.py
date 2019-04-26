@@ -3,8 +3,8 @@ from account import Account
 
 class SavingsAccount(Account):
 
-    def __init__(self, initial_deposit):
-        Account.__init__(self)
+    def __init__(self, initial_deposit, account_holder):
+        Account.__init__(self, account_holder)
 
         print("Opening bank account: " + self.__class__.__name__)
 
@@ -42,4 +42,4 @@ class SavingsAccount(Account):
     def __str__(self):
         return "[" + self.__class__.__name__ + ":balance=" \
                + str(self.balance) + ",interest-rate:" + str(self.interest_rate) +\
-                ",tax-rate:" + str(self.tax_rate) + "]"
+                ",tax-rate:" + str(self.tax_rate) + ", account_holder:" + str(self.account_holder) + "]"

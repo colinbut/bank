@@ -3,8 +3,8 @@ from account import Account
 
 class CashIsaAccount(Account):
 
-    def __init__(self):
-        Account.__init__(self)
+    def __init__(self, account_holder):
+        Account.__init__(self, account_holder)
 
         print("Opening bank account: " + self.__class__.__name__)
         self.interest_rate = 0.65
@@ -16,4 +16,5 @@ class CashIsaAccount(Account):
 
     def __str__(self):
         return "[" + self.__class__.__name__ + ":balance=" \
-               + str(self.balance) + ",interest-rate:" + str(self.interest_rate) + "]"
+               + str(self.balance) + ",interest-rate:" + str(self.interest_rate) + \
+               ", account-holder:" + str(self.account_holder) + "]"
