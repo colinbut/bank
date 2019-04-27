@@ -7,5 +7,6 @@ class BusinessBankAccount(Account):
         Account.__init__(self, account_holder)
 
     def __str__(self):
-        return "{" + self.__class__.__name__ + "-account_holder:" + str(self._account_holder) + "}"
+        return "{" + self.__class__.__name__ + "-account_holder:" + str(self._account_holder) \
+               + ",balance:" + str(self.balance) + "}"
 

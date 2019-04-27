@@ -50,7 +50,15 @@ for account_holder in account_holders:
 
 
 bank_of_colin = Bank()
-bank_of_colin.create_bank_account(colin, AccountType.BUSINESS_ACCOUNT)
+account_number = bank_of_colin.create_bank_account(colin, AccountType.BUSINESS_ACCOUNT)
+amy_savings_account = bank_of_colin.create_bank_account(amy, AccountType.SAVINGS_ACCOUNT)
+
+
+bank_of_colin.deposit_money(account_number, 500.00)
+bank_of_colin.deposit_money(account_number, 3000.00)
+
+bank_of_colin.deposit_money(amy_savings_account, 8000.00)
+bank_of_colin.withdraw_money(amy_savings_account, 9000.00)
 
 for bank_account in bank_of_colin.get_accounts():
     print(bank_account)

@@ -32,9 +32,9 @@ class SavingsAccount(Account):
         print("Deposited " + str_amount + " to " + self.__class__.__name__)
 
     def withdraw(self, amount):
-        print("Withdrawing" + str(amount) + " from " + self.__class__.__name__)
+        print("Withdrawing " + str(amount) + " from " + self.__class__.__name__)
         Account.withdraw(self, amount)
-        print("Withdrew" + str(amount) + " from " + self.__class__.__name__)
+        print("Withdrew " + str(amount) + " from " + self.__class__.__name__)
 
     def __str__(self):
         return "[" + self.__class__.__name__ + ":balance=" \
