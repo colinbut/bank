@@ -1,3 +1,4 @@
+from product.credit_card_account import CreditCardAccount
 from product.current_account import CurrentAccount
 from party.account_holder_type import AccountHolderType
 from party.basic_account_holder import BasicAccountHolder
@@ -12,9 +13,9 @@ print("Welcome to Bank of Colin")
 # Create the Banker(s)
 colin = BasicAccountHolder(Party("Colin", "But", "Address"), AccountHolderType.ADVANCE_CUSTOMER)
 # Create Accounts for Colin
-current_account = CurrentAccount("Current Bank Account", colin)
-savings_account = SavingsAccount(1.00, colin)
-cash_isa_account = CashIsaAccount(colin)
+colin_current_account = CurrentAccount("Current Bank Account", colin)
+colin_savings_account = SavingsAccount(1.00, colin)
+colin_cash_isa_account = CashIsaAccount(colin)
 
 amy = BasicAccountHolder(Party("Amy", "Man", "Address"), AccountHolderType.BASIC_CUSTOMER)
 amy_s_current_account = CurrentAccount("Current Bank Account", amy)
@@ -22,13 +23,15 @@ amy_s_savings_account = SavingsAccount(10.00, amy)
 amy_s_savings_account.deposit(2500.00)
 
 # Do some bank transactions..
-current_account.deposit(10.00)
-current_account.deposit(200.00)
-current_account.withdraw(50.00)
+colin_current_account.deposit(10.00)
+colin_current_account.deposit(200.00)
+colin_current_account.withdraw(50.00)
+
+colin_credit_card_account = CreditCardAccount(colin, 5000.00)
 
 account_holders = {colin, amy}
 
-colin_bank_accounts = (current_account, savings_account, cash_isa_account)
+colin_bank_accounts = (colin_current_account, colin_savings_account, colin_cash_isa_account, colin_credit_card_account)
 
 
 def print_colin_bank_accounts():
@@ -36,12 +39,6 @@ def print_colin_bank_accounts():
         print(account)
     else:
         print("The above are all bank accounts belonging to Colin")
-
-
-def print_account_details():
-    print(current_account)
-    print(savings_account)
-    print(cash_isa_account)
 
 
 print_colin_bank_accounts()
