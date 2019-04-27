@@ -36,3 +36,5 @@ Thumbs.db
 /target/
 
 __pycache__/*
+party/__pycache__/*
+product/__pycache__/*
