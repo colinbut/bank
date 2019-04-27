@@ -1,3 +1,5 @@
+from bank import Bank
+from product.account_type import AccountType
 from product.credit_card_account import CreditCardAccount
 from product.current_account import CurrentAccount
 from party.account_holder_type import AccountHolderType
@@ -45,3 +47,11 @@ print_colin_bank_accounts()
 
 for account_holder in account_holders:
     print(account_holder)
+
+
+bank_of_colin = Bank()
+bank_of_colin.create_bank_account(colin, AccountType.BUSINESS_ACCOUNT)
+
+for bank_account in bank_of_colin.get_accounts():
+    print(bank_account)
+
