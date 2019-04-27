@@ -39,4 +39,4 @@ class SavingsAccount(Account):
     def __str__(self):
         return "[" + self.__class__.__name__ + ":balance=" \
                + str(self.balance) + ",interest-rate:" + str(SavingsAccount.interest_rate) +\
-                ",tax-rate:" + str(SavingsAccount.tax_rate) + ", account_holder:" + str(self.account_holder) + "]"
+                ",tax-rate:" + str(SavingsAccount.tax_rate) + ", account_holder:" + str(self._account_holder) + "]"

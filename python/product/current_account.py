@@ -11,5 +11,5 @@ class CurrentAccount(Account):
 
     def __str__(self):
         return "[" + self.__class__.__name__ + ":balance=" \
-               + str(self.balance) + ",description=" + self.description + ",account_holder:" + str(self.account_holder) \
+               + str(self.balance) + ",description=" + self.description + ",account_holder:" + str(self._account_holder) \
                + "]"

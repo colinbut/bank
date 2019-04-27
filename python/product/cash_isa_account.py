@@ -17,4 +17,4 @@ class CashIsaAccount(Account):
     def __str__(self):
         return "[" + self.__class__.__name__ + ":balance=" \
                + str(self.balance) + ",interest-rate:" + str(CashIsaAccount.interest_rate) + \
-               ", account-holder:" + str(self.account_holder) + "]"
+               ", account-holder:" + str(self._account_holder) + "]"
