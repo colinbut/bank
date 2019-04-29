@@ -13,7 +13,8 @@
 
 .settings/*
 .idea/*
-target/* 
+target/*
+.gradle/*
 
 # Packages #
 ############
@@ -34,7 +35,3 @@ target/*
 ehthumbs.db
 Thumbs.db
 /target/
-
-__pycache__/*
-party/__pycache__/*
-product/__pycache__/*
