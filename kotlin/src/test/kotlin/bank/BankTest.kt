@@ -24,10 +24,10 @@ class BankTest {
 
     @Test
     fun `withdraw money should return subtract amount from balance` () {
-
         val bankAccount = BankAccount("Current Account", 150.00)
 
-        assertTrue { 50.00 == bankAccount.withdraw(50.00) }
+        bankAccount.withdraw(50.00)
+
         assertTrue {  100.00 == bankAccount.balance }
     }
 
