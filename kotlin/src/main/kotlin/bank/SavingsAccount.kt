@@ -10,10 +10,12 @@ import java.math.RoundingMode
 
 class SavingsAccount(name: String, balance: Double) : BankAccount(name, balance) {
 
-    fun getInterestEarned(): BigDecimal {
-        val interestRate = 0.35
+    companion object {
+        private const val INTEREST_RATE = 0.35
+    }
 
-        return BigDecimal.valueOf(balance * (interestRate / 100))
+    fun getInterestEarned(): BigDecimal {
+        return BigDecimal.valueOf(balance * (INTEREST_RATE / 100))
                 .setScale(2, RoundingMode.HALF_EVEN)
     }
 }

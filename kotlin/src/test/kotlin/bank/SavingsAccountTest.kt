@@ -19,9 +19,7 @@ class SavingsAccountTest {
     @Test
     fun `get interest earned should return correct amount`() {
         val savingsAccount = SavingsAccount("Savings Account", 10.00)
-
         val interestEarned = savingsAccount.getInterestEarned()
-
         assertEquals(BigDecimal.valueOf(0.03), interestEarned)
     }
 
