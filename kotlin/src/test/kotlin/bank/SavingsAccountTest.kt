@@ -12,8 +12,13 @@ import kotlin.test.assertEquals
 class SavingsAccountTest {
 
     @Test
-    fun `incue interests should increase balance by interest incued amount`() {
+    fun `interests payments should increase balance by interest earned amount`() {
+        val savingsAccount = SavingsAccount("Savings Account", 10.00)
+        savingsAccount.payInterest()
 
+        val newBalance = savingsAccount.balance
+
+        assertEquals(BigDecimal.valueOf(10.03).toDouble(), newBalance)
     }
 
     @Test
