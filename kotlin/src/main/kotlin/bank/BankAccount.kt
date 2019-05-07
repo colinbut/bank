@@ -1,13 +1,15 @@
 package bank
 
-open class BankAccount (val name: String, var balance: Double) {
+import bank.core.Money
 
-    fun withdraw(amount: Double) {
-        balance -= amount
+open class BankAccount (val name: String, var balance: Money) {
+
+    fun withdraw(amount: Money) {
+        balance = balance.subtractMoney(amount)
     }
 
-    fun deposit(amount: Double) {
-        balance += amount
+    fun deposit(amount: Money) {
+        balance = balance.addMoney(amount)
     }
 
 }

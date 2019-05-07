@@ -5,21 +5,21 @@
  */
 package bank
 
+import bank.core.Money
 import java.math.BigDecimal
-import java.math.RoundingMode
+import java.util.*
 
-class SavingsAccount(name: String, balance: Double) : BankAccount(name, balance) {
+class SavingsAccount(name: String, balance: Money) : BankAccount(name, balance) {
 
     companion object {
         private const val INTEREST_RATE = 0.35
     }
 
-    fun getInterestEarned(): BigDecimal {
-        return BigDecimal.valueOf(balance * (INTEREST_RATE / 100))
-                .setScale(2, RoundingMode.HALF_EVEN)
+    fun getInterestEarned(): Money {
+        return balance.multiplyMoney(Money(BigDecimal.valueOf(INTEREST_RATE / 100), Currency.getInstance("GBP")))
     }
 
     fun payInterest() {
-        balance += getInterestEarned().toDouble()
+        balance = balance.addMoney(getInterestEarned())
     }
 }
