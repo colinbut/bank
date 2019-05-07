@@ -12,7 +12,7 @@ import java.util.*
 class SavingsAccount(name: String, balance: Money) : BankAccount(name, balance) {
 
     companion object {
-        private const val INTEREST_RATE = 0.35
+        const val INTEREST_RATE = 0.35
     }
 
     fun getInterestEarned(): Money {

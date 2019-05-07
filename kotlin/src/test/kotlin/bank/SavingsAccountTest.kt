@@ -31,4 +31,10 @@ class SavingsAccountTest {
         assertEquals(BigDecimal.valueOf(0.03).toDouble(), interestEarned.amount.toDouble())
     }
 
+    @Test
+    fun `Savings account's interest rate is 0 point 35%` () {
+        assertEquals(0.35, SavingsAccount.INTEREST_RATE)
+    }
+
+
 }
