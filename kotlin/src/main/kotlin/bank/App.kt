@@ -1,12 +1,11 @@
 package bank
 
-class App {
-    val greeting: String
-        get() {
-            return "Hello world."
-        }
-}
+import java.util.*
+
+val DEFAULT_CURRENCY : Currency = Currency.getInstance("GBP")
+
+class App
 
 fun main(args: Array<String>) {
-    println(App().greeting)
+    // TODO fill this in!
 }

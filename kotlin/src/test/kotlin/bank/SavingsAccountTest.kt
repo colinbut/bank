@@ -13,8 +13,7 @@ import kotlin.test.assertEquals
 
 class SavingsAccountTest {
 
-    private val currency : Currency = Currency.getInstance("GBP")
-    private val initialBalance = Money(BigDecimal.valueOf(10.00), currency)
+    private val initialBalance = Money(BigDecimal.valueOf(10.00), DEFAULT_CURRENCY)
 
     @Test
     fun `interests payments should increase balance by interest earned amount`() {
