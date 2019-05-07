@@ -6,22 +6,22 @@
 package bank.core
 
 import java.math.BigDecimal
+import java.math.RoundingMode
 import java.util.*
 
-data class Money(val amount: BigDecimal, val currency: Currency) {
+data class Money(var amount: BigDecimal, val currency: Currency) {
 
     fun addMoney(amount: Money) : Money {
-        this.amount.add(amount.amount)
+        this.amount = this.amount.add(amount.amount).setScale(2, RoundingMode.HALF_EVEN)
         return this
     }
 
     fun subtractMoney(amount: Money) : Money {
-        this.amount.subtract(amount.amount)
+        this.amount = this.amount.subtract(amount.amount).setScale(2, RoundingMode.HALF_EVEN)
         return this
     }
 
     fun multiplyMoney(amount: Money) : Money {
-        this.amount.multiply(amount.amount)
-        return this
+        return Money(this.amount.multiply(amount.amount).setScale(2, RoundingMode.HALF_EVEN), currency)
     }
 }

@@ -21,7 +21,7 @@ Imaginary user stories broken down into fine granular detailed requirements
 
 - [ ] Bank have users (bankers)
 
-- [ ] bankers can:
+bankers can:
  - [x] view their balance
  - [x] deposit money
  - [ ] withdraw money (if have sufficient balance & does not go over overdraft limit if have one)
