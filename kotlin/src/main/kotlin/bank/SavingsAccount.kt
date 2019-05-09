@@ -6,17 +6,19 @@
 package bank
 
 import bank.core.Money
-import java.math.BigDecimal
-import java.util.*
+import bank.core.MoneyBuilder
 
-class SavingsAccount(name: String, balance: Money) : BankAccount(name, balance) {
+open class SavingsAccount(name: String, balance: Money) : BankAccount(name, balance) {
 
     companion object {
-        const val INTEREST_RATE = 0.35
+        const val INTEREST_RATE : Double = 0.35
+        const val TAX_RATE: Double = 12.5
     }
 
-    fun getInterestEarned(): Money {
-        return balance.multiplyMoney(Money(BigDecimal.valueOf(INTEREST_RATE / 100), Currency.getInstance("GBP")))
+    open fun getInterestEarned(): Money {
+        val interestsEarned = balance.multiplyMoney(amount = MoneyBuilder.build(INTEREST_RATE / 100))
+        val taxDeducted = balance.multiplyMoney(amount = MoneyBuilder.build(TAX_RATE / 100))
+        return interestsEarned.subtractMoney(taxDeducted)
     }
 
     fun payInterest() {
