@@ -5,8 +5,10 @@
  */
 package bank
 
+import bank.Bank.Banker
 import bank.core.MoneyBuilder
 import kotlin.test.Test
+import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class BankTest {
@@ -44,4 +46,22 @@ class BankTest {
 
         assertTrue {  180.00 == bankAccount.balance.amount.toDouble() }
     }
+
+    @Test
+    fun `test bank retrieve account holders` () {
+        val accountHolder1 = Banker("Colin But")
+        val accountHolder2 = Banker("Peter Bloggs")
+        val expectedAccountHolders = listOf(accountHolder1, accountHolder2)
+
+        val actualAccountHolders = Bank().getBankers()
+
+        assertEquals(expectedAccountHolders, actualAccountHolders)
+    }
+
+    @Test
+    fun `test bank add new account holders`() {
+
+    }
+
+
 }

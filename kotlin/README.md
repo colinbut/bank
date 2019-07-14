@@ -17,7 +17,7 @@ Imaginary user stories broken down into fine granular detailed requirements
 
 - [x] Savings Accounts (normal savings account & isas ) have:
     - [x] interest rates
-    - [ ] earn interests ~~(monthly basis)~~ but ISAs are tax free
+    - [x] earn interests ~~(monthly basis)~~ but ISAs are tax free
 
 - [ ] Bank have users (bankers)
 
